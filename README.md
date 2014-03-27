@@ -1,4 +1,4 @@
-Flickr-Jr.
+FlickrJr
 ==========
 
-Flickr Clone
+Flickr Clone Challenge for Dev Bootcamp
