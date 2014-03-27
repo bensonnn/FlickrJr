@@ -1,4 +1,9 @@
-get 'user/:user_id' do
+get '/albums' do
+	erb :albums
+end
+
+
+get '/user/:user_id' do
   redirect to "/"
   @user = User.find(params[:id])
   erb :user_albums

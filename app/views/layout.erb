@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 <title>Flickr</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="js/dropzone.js"></script>
-<script src="js/dropzone.js"></script>
+<script src="js/menu.js"></script>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
 <!--[if lte IE 8]>
 <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
@@ -31,20 +32,19 @@
             <a class="pure-menu-heading" href="#">Flickr</a>
 
             <ul>
-                <li><a href="/">Home</a></li>
                 <% if session[:user] %>
                 <li><a href="/users/<%= session[:user].id %>">My Albums</a></li>
                 <% end %>
 
-                <li class="menu-item-divided pure-menu-selected">
+                <li>
                     <a href="/albums">Albums</a>
                 </li>
 
-                <li><a href="/upload">Upload</a></li>
                 <% if session[:user] %>
+                <li><a href="/upload">Upload</a></li>
                 <li><a href="/logout">Logout</a></li>
                 <% else %>
-                <li><a href="/">Login</a></li>
+                <li class='pure-menu-selected'><a href="/">Login</a></li>
                 <% end %>
 
             </ul>
