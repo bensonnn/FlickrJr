@@ -1,0 +1,14 @@
+    <div id="main">
+        <div class="header">
+            <h1><%= @album.name %></h1>
+
+        </div>
+
+        <div class="content">
+            <h2 class="content-subhead">Photos:</h2>
+            <% @album.photos.each do |photo| %>
+            <li><img src="<%= photo.url %>" title=""></li>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+    <div id="main">
+        <div class="header">
+            <h1>Upload</h1>
+            <h2>Album name</h2>
+        </div>
+
+        <div class="content">
+            <form action="/upload" method='post'
+                class="dropzone"
+                id="my-awesome-dropzone">
+                <select required name='album'>
+                    <% @user.albums.each do |album| %>
+                    <option value="<%= album.name %>"><%= album.name %></option>
+                    <% end %>
+                </select>
+            </form>
+
+        </div>
+    </div>
+</div>
