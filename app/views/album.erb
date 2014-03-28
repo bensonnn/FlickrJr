@@ -6,9 +6,11 @@
 
         <div class="content">
             <h2 class="content-subhead">Photos:</h2>
-            <% @album.photos.each do |photo| %>
-            <li><img src="<%= photo.url %>" title=""></li>
-            <% end %>
+            <ul id="photos">
+                <% @album.photos.each do |photo| %>
+                <li><img src="/uploads/<%= photo.file %>" title=""></li>
+                <% end %>
+            </ul>
         </div>
     </div>
 </div>

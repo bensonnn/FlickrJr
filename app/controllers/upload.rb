@@ -1,14 +1,17 @@
 get '/upload' do
-  if session[:user]
-    @user = session[:user]
+
+    @user = current_user
     erb :upload
-  else
-    redirect to '/'
-  end
+
 end
 
 post '/upload'do
-  puts params
+
+  filename = params[:file][:filename]
+  temp_path = params[:file][:tempfile].path
+  Photo.create!(album_id: params[:album_id], file: filename)
+  File.open("public/uploads/#{filename}", 'w+')
+  FileUtils::cp(temp_path, "public/uploads/#{filename}")
 end
 
 
