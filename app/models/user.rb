@@ -3,7 +3,11 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   has_many :albums
   has_many :comments
-
+  after_create :add_default_album
+ 
+  def add_default_album
+    Album.create!(name: "default", user_id: self.id)
+  end 
 
   def password
     Password.new(hashword)
